@@ -1,24 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 {% endblock %}
 
 {% block body %}
-
-    {{ form_start(registrationForm) }}
-
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.agreeTerms, {
+	<div class="form-div">
+		<h1>Register</h1>
+		{{ form_start(registrationForm) }}
+		{{ form_row(registrationForm.email) }}
+		{{ form_row(registrationForm.plainPassword) }}
+		{{ form_row(registrationForm.agreeTerms, {
             label: 'Please, accept our terms'
         }) }}
 
-        <button type="submit" class="btn">Register</button>
+		<button type="submit" class="btn">Register</button>
 
-    {{ form_end(registrationForm) }}
+		{{ form_end(registrationForm) }}
 
-    {{ form_errors(registrationForm) }}
+		{{ form_errors(registrationForm) }}
+		<a href="{{ path('app_login') }}">already a user</a>
+	</div>
+
 
 {% endblock %}
