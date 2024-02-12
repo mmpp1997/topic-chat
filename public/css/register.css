@@ -1,0 +1,35 @@
+body * {
+    font-family: sans-serif;
+}
+body{
+    background-color: brown;
+}
+.input{
+    background-color: transparent;
+    font-size: 28px;
+    border: none;
+    border-bottom: 1px solid whitesmoke;
+    margin-bottom: 10px;
+}
+.input::placeholder{
+    color: whitesmoke;
+}
+.required{
+    font-size: 28px;
+    color: whitesmoke;
+}
+
+.terms{
+    border: none;
+    background-color: transparent;
+    margin: 15px;
+}
+
+.btn{
+    font-size: 28px;
+    border-radius: 15px;
+    color: whitesmoke;
+    background-color: blue;
+    border: none;
+    padding: 10px;
+}
