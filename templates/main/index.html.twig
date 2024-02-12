@@ -8,12 +8,16 @@
 {% endblock %}
 
 {% block body %}
-	{% if app.user %}
-		<div class="">
-			You are logged in as
-			{{ app.user.userIdentifier }},
-			<a href="{{ path('app_logout') }}">Logout</a>
-		</div>
-	{% endif %}
-	<h1>Homepage</h1>
+	<div>
+		{% block header %}
+			{% include 'main/header.html.twig' %}
+		{% endblock %}
+	</div>
+	<div></div>
+	<div>
+		{% block footer %}
+			{% include 'main/footer.html.twig' %}
+		{% endblock %}
+	</div>
+
 {% endblock %}

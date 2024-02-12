@@ -1,0 +1,9 @@
+<header class="header">
+
+	<a class="title" href="homepage">Topic Chat</a>
+
+	{% if app.user %}
+		<a class="logout btn" href="{{ path('app_logout') }}">Logout</a>
+	{% endif %}
+    
+</header>
