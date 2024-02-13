@@ -1,0 +1,37 @@
+.add-room-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-room-div{
+    display: inline-block;
+}
+.room-add {
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  margin: 10px 0px;
+  width: 250px;
+  font-size: 23px;
+  padding: 5px;
+  background-color: transparent;
+  color: whitesmoke;
+}
+.room-add::placeholder {
+  color: whitesmoke;
+}
+.add-room-title {
+  color: whitesmoke;
+}
+.add-room-btn {
+  background-color: green;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: whitesmoke;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+.back{
+    background-color: blue;
+}

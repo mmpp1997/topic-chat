@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}add
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/add_room.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div>
+		{% block header %}
+			{% include 'main/header.html.twig' %}
+		{% endblock %}
+	</div>
+
+	<div class="add-room-body">
+		<div class="add-room-div">
+			<h2 class="add-room-title">Add Room</h2>
+			{{form_start(form)}}
+
+			{{ form_row(form.name) }}
+			{{ form_row(form.description) }}
+			{{ form_row(form.imgSource) }}
+
+			<button type="submit" class="add-room-btn">Add</button>
+			<a class="back add-room-btn" href="{{ path('homepage') }}">Go back</a>
+
+			{{form_end(form)}}
+		</div>
+	</div>
+
+	<div>
+		{% block footer %}
+			{% include 'main/footer.html.twig' %}
+		{% endblock %}
+	</div>
+
+{% endblock %}
