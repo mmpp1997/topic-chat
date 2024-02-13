@@ -24,7 +24,7 @@ class RoomFormType extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'attr' => array(
-                    'class' => 'room-add',
+                    'class' => 'room-add text-box',
                     'placeholder' => 'Enter room description...'
                 ),
                 'label' => false,
@@ -33,7 +33,7 @@ class RoomFormType extends AbstractType
             ->add('imgSource', TextType::class, [
                 'attr' => array(
                     'class' => 'room-add',
-                    'placeholder' => 'Enter source...'
+                    'placeholder' => 'Enter img source...'
                 ),
                 'label' => false,
                 'required' => true

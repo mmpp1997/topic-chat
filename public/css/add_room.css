@@ -10,8 +10,8 @@
   border: none;
   border-bottom: 1px solid whitesmoke;
   margin: 10px 0px;
-  width: 250px;
-  font-size: 23px;
+  width: 500px;
+  font-size: 35px;
   padding: 5px;
   background-color: transparent;
   color: whitesmoke;
@@ -19,11 +19,15 @@
 .room-add::placeholder {
   color: whitesmoke;
 }
+.text-box{
+  resize: none;
+  height: 150px;
+}
 .add-room-title {
   color: whitesmoke;
 }
 .add-room-btn {
-  background-color: green;
+  background-color: #789461;
   border: none;
   border-radius: 15px;
   font-size: 20px;
@@ -33,5 +37,5 @@
   text-decoration: none;
 }
 .back{
-    background-color: blue;
+    background-color: #ff1b5e;
 }

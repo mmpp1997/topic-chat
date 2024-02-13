@@ -26,6 +26,14 @@ class RegistrationFormType extends AbstractType
                 ],
                 'label' => false
             ])
+            ->add('nickname',TextType::class, [
+                'attr' => [
+                    'autocomplete' => 'nickname',                     
+                    'class' => 'input',
+                    'placeholder' => 'Nickname'
+                ],
+                'label' => false
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'attr' => [                     

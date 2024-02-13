@@ -15,10 +15,10 @@
 	</div>
 	<div class="main-body">
 		{% for room in rooms %}
-			<div class="room-div">
-				<a href="rooms/{{room.id}}"><img class="room-logo" src="{{ room.imgSource }}" alt="Logo"></a>
-				<h2 class="room-title">{{ room.name }}</h2>
-			</div>
+			<a class="room-div" href="rooms/{{room.id}}">
+					<img class="room-logo" src="{{ room.imgSource }}" alt="Logo">
+					<h2 class="room-title">{{ room.name }}</h2>
+			</a>
 		{% endfor %}
 	</div>
 	<div>
