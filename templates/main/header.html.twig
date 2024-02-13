@@ -1,9 +1,11 @@
 <header class="header">
 
-	<a class="title" href="homepage">Topic Chat</a>
+	<a class="title" href="{{ path('homepage') }}">Topic Chat</a>
 
 	{% if app.user %}
-		<a class="logout btn" href="{{ path('app_logout') }}">Logout</a>
+		<a class="add-btn" href="{{ path('app_logout') }}">Add Room</a>
+		<a class="logout-btn" href="{{ path('app_logout') }}">Logout</a>
+		
 	{% endif %}
     
 </header>
