@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -31,6 +33,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $nickname = null;
+
+    #[ORM\OneToMany(targetEntity: Room::class, mappedBy: 'ownerId', orphanRemoval: true)]
+    private Collection $ownedRooms;
+
+    #[ORM\ManyToMany(targetEntity: Room::class, mappedBy: 'members')]
+    private Collection $rooms;
+
+    public function __construct()
+    {
+        $this->ownedRooms = new ArrayCollection();
+        $this->rooms = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -110,6 +124,63 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setNickname(string $nickname): static
     {
         $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Room>
+     */
+    public function getOwnedRooms(): Collection
+    {
+        return $this->ownedRooms;
+    }
+
+    public function addOwnedRoom(Room $ownedRoom): static
+    {
+        if (!$this->ownedRooms->contains($ownedRoom)) {
+            $this->ownedRooms->add($ownedRoom);
+            $ownedRoom->setOwnerId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOwnedRoom(Room $ownedRoom): static
+    {
+        if ($this->ownedRooms->removeElement($ownedRoom)) {
+            // set the owning side to null (unless already changed)
+            if ($ownedRoom->getOwnerId() === $this) {
+                $ownedRoom->setOwnerId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Room>
+     */
+    public function getRooms(): Collection
+    {
+        return $this->rooms;
+    }
+
+    public function addRoom(Room $room): static
+    {
+        if (!$this->rooms->contains($room)) {
+            $this->rooms->add($room);
+            $room->addMember($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRoom(Room $room): static
+    {
+        if ($this->rooms->removeElement($room)) {
+            $room->removeMember($this);
+        }
 
         return $this;
     }

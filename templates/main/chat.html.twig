@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}chat
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/add_room.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div>
+		{% block header %}
+			{% include 'main/header.html.twig' %}
+		{% endblock %}
+	</div>
+
+	<div class="">
+    <h2>chat</h2>
+    </div>
+		
+
+	<div>
+		{% block footer %}
+			{% include 'main/footer.html.twig' %}
+		{% endblock %}
+	</div>
+
+{% endblock %}

@@ -17,6 +17,7 @@ body * {
 }
 .main-body {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .room-div {

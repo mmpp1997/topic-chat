@@ -5,6 +5,7 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/room.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -13,11 +14,29 @@
 			{% include 'main/header.html.twig' %}
 		{% endblock %}
 	</div>
-	<div>
-		<h2 class="room-title">{{ room.name }}</h2>
-        <h2 class="room-title">{{ room.description }}</h2>
-        <h2 class="room-title">created at {{ room.createdAt.format('d-m-y') }}</h2>
-        <h2 class="room-title">by {{ room.owner }}</h2>
+	<div class="about-body">
+		<div class="about-div">
+			<h1 class="room-title">{{ room.name|capitalize }}</h1>
+			<h2 class="room-title">{{ room.description|capitalize }}</h2>
+			<h3 class="room-title">Created by
+				{{ room.owner.getEmail() }}
+				on
+				{{ room.createdAt.format('F d, Y') }}
+			</h3>
+			<h3 class="room-title">Members include:
+				{% for role in room.getMembers() %}
+					{{ role.getNickname() }},
+				{% endfor %}
+			</h3>
+			{% if isMember %}
+				<a class="join-btn" href="{{ path('chat_room',{'roomId': room.getId()}) }}">Join Chat</a>
+
+			{% else %}
+				<form action="{{ path('join_room',{'roomId': room.getId()}) }}" method="POST">
+					<button class="join-btn" type="submit">Join Room</button>
+				</form>
+			{% endif %}
+		</div>
 	</div>
 	<div>
 		{% block footer %}

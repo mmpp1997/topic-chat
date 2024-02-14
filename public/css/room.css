@@ -1,0 +1,25 @@
+.about-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 15px;
+}
+.join-btn{
+    font-size: 28px;
+    border: none;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: #ff1b5e;
+    padding: 15px;
+    border-radius: 15px;
+}
